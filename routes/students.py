@@ -220,12 +220,12 @@ def create_student(current_user):
         db = get_db()
         
         # Check if roll number already exists
-        existing_students = db.collection('students').where('rollNumber', '==', roll_number).limit(1).stream()
+        existing_students = db.collection('students').where(field_path='rollNumber', op_string='==', value=roll_number).limit(1).stream()
         if len(list(existing_students)) > 0:
             return jsonify({'error': f'Student with roll number {roll_number} already exists'}), 409
         
         # Check if email already exists
-        existing_email = db.collection('students').where('email', '==', email).limit(1).stream()
+        existing_email = db.collection('students').where(field_path='email', op_string='==', value=email).limit(1).stream()
         if len(list(existing_email)) > 0:
             return jsonify({'error': f'Student with email {email} already exists'}), 409
         

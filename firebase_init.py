@@ -36,7 +36,7 @@ def get_db():
 def get_user_by_username(username):
     db = get_db()
     users_ref = db.collection('users')
-    query = users_ref.where('username', '==', username).limit(1)
+    query = users_ref.where(field_path='username', op_string='==', value=username).limit(1)
     docs = query.stream()
     
     for doc in docs:
@@ -91,7 +91,7 @@ def delete_user(user_id):
 def get_user_by_refresh_token(refresh_token):
     db = get_db()
     users_ref = db.collection('users')
-    query = users_ref.where('refresh_token', '==', refresh_token).limit(1)
+    query = users_ref.where(field_path='refresh_token', op_string='==', value=refresh_token).limit(1)
     docs = query.stream()
     
     for doc in docs:
