@@ -27,7 +27,8 @@ CORS(app, supports_credentials=True, origins=[
     'http://localhost:5173',
     'https://excel-to-db-iare.onrender.com',
     'https://ai-to-db-iare.onrender.com',
-    'https://authentication-for-iare.onrender.com'
+    'https://authentication-for-iare.onrender.com',
+    'https://frontend-iare-pat.vercel.app'
 ])
 Compress(app)
 
@@ -540,3 +541,4 @@ if __name__ == '__main__':
     # print(f"{'='*50}\n")
     
     app.run(host=host, port=port, debug=debug)
+
